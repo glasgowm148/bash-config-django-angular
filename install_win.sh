@@ -1,4 +1,9 @@
 #!/bin/bash
+
+# github.com/glasgowm148
+
+# Small bash/sh script that configures an angular/django/rest project
+
 echo " ~~~~~~ Foodle : Repo initialisation Bash shell script ~~~~~~ "
 
 echo "The follow file configures the following : "

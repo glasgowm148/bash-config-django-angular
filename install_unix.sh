@@ -1,5 +1,12 @@
 #!/bin/bash
-echo " ~~~~~~ Foodle : Repo initialisation Bash shell script ~~~~~~ "
+
+# github.com/glasgowm148
+
+# Small bash/sh script that configures an angular/django/rest project
+
+$app = "foodle"
+
+echo " ~~~~~~ $app : Repo initialisation Bash shell script ~~~~~~ "
 
 echo "The follow file configures the following : "
 echo "Setting up venv + installing requirements.txt"
@@ -18,7 +25,7 @@ pip3.6 install -r requirements.txt
 
 
 # Custom bash/sh script to enter into the correct directory. 
-echo ""Moving into the foodle/front-end directory""
+echo ""Moving into the $app/front-end directory""
 echo "$(pwd)"
 # foodle - An app within the project, containing the Django Rest Framework views and URL routing
 cd foodle/front-end || exit
