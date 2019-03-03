@@ -1,12 +1,23 @@
 #!/bin/bash
 
-# github.com/glasgowm148
+# Windows needs to be set-up to run .sh files >> 
+# https://www.howtogeek.com/249966/how-to-install-and-use-the-linux-bash-shell-on-windows-10/
 
-# Small bash/sh script that configures an angular/django/rest project
-
-$app = "foodle"
-
-echo " ~~~~~~ $app : Repo initialisation Bash shell script ~~~~~~ "
+"""
+Windows Commands without comments
+pip install virtualenv
+python -m venv venv
+venv\Scripts\activate
+pip install -r requirements.txt
+cd foodle/front-end 
+npm install -g @angular/cli@latest
+ng update @angular/cli @angular/core
+ng build
+cd ../..
+python manage.py runserver
+"""
+cd /.
+echo " ~~~~~~ Foodle : Repo initialisation Bash shell script ~~~~~~ "
 
 echo "The follow file configures the following : "
 echo "Setting up venv + installing requirements.txt"
@@ -16,16 +27,17 @@ echo "Estimated time : 1-5 minutes"
 
 echo " ~~~~~~ Configuring a local python 3.6 virtualenv ~~~~~~ "
 
-pip3.6 install virtualenv
-virtualenv -p python3.6 venv
-. venv/bin/activate
-echo "~~~~~~ venv activated - installing project requirements.txt ~~~~~~"
-pip3.6 install -r requirements.txt
+pip install virtualenv
+python -m venv venv
+venv\Scripts\activate
+echo " ~~~~~~ venv activated - installing project requirements.txt ~~~~~~ "
+pip install -r requirements.txt
+
 
 
 
 # Custom bash/sh script to enter into the correct directory. 
-echo ""Moving into the $app/front-end directory""
+echo ""Moving into the foodle/front-end directory""
 echo "$(pwd)"
 # foodle - An app within the project, containing the Django Rest Framework views and URL routing
 cd foodle/front-end || exit
@@ -59,12 +71,8 @@ echo "$(pwd)"
 
 echo "~~~~~~ manage.py runserver ~~~~~~"
 
-
-echo "~~~~~~ All configured successfully. ~~~~~~"
-echo "~~~~~~ Open a new tab and run ./check.sh ~~~~~~"
-
-
+echo "##### All configured successfully. If the python server runs below #####"
+echo "##### Open a new tab and run ./check.sh #####"
 
 # Run the python server - which is linked with angular via the REST framework. 
 python manage.py runserver
-

@@ -1,9 +1,6 @@
 #!/bin/bash
 
-# github.com/glasgowm148
-
-# Small bash/sh script that configures an angular/django/rest project
-
+# Mac OSX / Linux config script. Run check.sh after. 
 echo " ~~~~~~ Foodle : Repo initialisation Bash shell script ~~~~~~ "
 
 echo "The follow file configures the following : "
@@ -14,12 +11,11 @@ echo "Estimated time : 1-5 minutes"
 
 echo " ~~~~~~ Configuring a local python 3.6 virtualenv ~~~~~~ "
 
-pip install virtualenv
-python -m venv venv
-venv\Scripts\activate
-echo " ~~~~~~ venv activated - installing project requirements.txt ~~~~~~ "
-pip install -r requirements.txt
-
+pip3.6 install virtualenv
+virtualenv -p python3.6 venv
+. venv/bin/activate
+echo "~~~~~~ venv activated - installing project requirements.txt ~~~~~~"
+pip3.6 install -r requirements.txt
 
 
 
@@ -37,8 +33,10 @@ cd foodle/front-end || exit
 
 echo " ~~~~~~  npm install -g @angular/cli@latest - installs the latest version  ~~~~~~ "
 npm install -g @angular/cli@latest
+npm install --save-dev @angular-devkit/build-angular
 
 # update the node package to be on the same cli as the core
+npm update
 ng update @angular/cli @angular/core
 # you can install npx and run npx ng <command> within
 #  the local directory where npm install @angular/cli was run, 
@@ -55,11 +53,28 @@ echo "~~~~~~ npm installed successfully. ~~~~~~"
 cd ../..
 echo "$(pwd)"
 
+echo " ~~~~~~ Current working directory :: ~~~~~~ "
+echo "$(pwd)"
+
+echo " ~~~~~~ Dependecy Check ::  ~~~~~~ "
+
+npm ls --depth 0
+
+echo " ~~~~~~ Git Stauts :: ~~~~~~ "
+git status
+
+echo " ~~~~~~ Spawning venv in subshell ~~~~~~ "
+
+script_dir=`dirname $0`
+cd $script_dir
+/bin/bash -c ". ../venv/bin/activate; exec /bin/bash -i"
 
 echo "~~~~~~ manage.py runserver ~~~~~~"
 
-echo "~~~~~~ All configured successfully. If the python server runs below ~~~~~~"
-echo "~~~~~~ Open a new tab and run ./check_win.sh ~~~~~~"
+
 
 # Run the python server - which is linked with angular via the REST framework. 
 python manage.py runserver
+
+echo "~~~~~~ All configured successfully. ~~~~~~"
+echo "~~~~~~ Open a new tab and run ./check.sh ~~~~~~"
