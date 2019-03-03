@@ -53,8 +53,8 @@ echo "$(pwd)"
 
 echo "~~~~~~ manage.py runserver ~~~~~~"
 
-echo "##### All configured successfully. If the python server runs below #####"
-echo "##### Open a new tab and run ./check.sh #####"
+echo "~~~~~~ All configured successfully. If the python server runs below ~~~~~~"
+echo "~~~~~~ Open a new tab and run ./check_win.sh ~~~~~~"
 
 # Run the python server - which is linked with angular via the REST framework. 
 python manage.py runserver
