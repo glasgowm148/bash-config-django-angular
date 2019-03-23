@@ -1,21 +1,3 @@
-#!/bin/bash
-
-# Windows needs to be set-up to run .sh files >> 
-# https://www.howtogeek.com/249966/how-to-install-and-use-the-linux-bash-shell-on-windows-10/
-
-"""
-Windows Commands without comments
-pip install virtualenv
-python -m venv venv
-venv\Scripts\activate
-pip install -r requirements.txt
-cd foodle/front-end 
-npm install -g @angular/cli@latest
-ng update @angular/cli @angular/core
-ng build
-cd ../..
-python manage.py runserver
-"""
 cd /.
 echo " ~~~~~~ Foodle : Repo initialisation Bash shell script ~~~~~~ "
 
@@ -28,7 +10,7 @@ echo "Estimated time : 1-5 minutes"
 echo " ~~~~~~ Configuring a local python 3.6 virtualenv ~~~~~~ "
 
 pip install virtualenv
-python -m venv venv
+python -m virtualenv venv
 venv\Scripts\activate
 echo " ~~~~~~ venv activated - installing project requirements.txt ~~~~~~ "
 pip install -r requirements.txt
@@ -56,6 +38,8 @@ ng update @angular/cli @angular/core
 # you can install npx and run npx ng <command> within
 #  the local directory where npm install @angular/cli was run, 
 # which will use the locally installed angular-cli.
+npm install --save @ng-bootstrap/ng-bootstrap
+
 
 echo " ~~~~~~   ng build... ~~~~~~"
 
